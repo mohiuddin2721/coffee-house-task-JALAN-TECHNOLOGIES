@@ -13,7 +13,7 @@ const Home = () => {
     const coffee = {
         espressoCoffee: {
             name: 'Espresso Coffee',
-            milk: 60,
+            milk: "milk+60",
             cream: 70,
             latte: 100,
             addOn: function (milk = 0, cream = 0, latte = 0) {

@@ -1,10 +1,7 @@
 import React from 'react';
-// import { Button, Modal } from 'react-bootstrap';
-import Button from 'react-bootstrap/Button';
-import Modal from 'react-bootstrap/Modal';
+import { Button, Modal } from 'react-bootstrap';
 
-const EspressoModal = (props) => {
-    // const { submitEspresso, onHide } = props;
+const CappuccinoModal = (props) => {
     return (
         <Modal
             {...props}
@@ -27,4 +24,4 @@ const EspressoModal = (props) => {
     );
 };
 
-export default EspressoModal;
+export default CappuccinoModal;
