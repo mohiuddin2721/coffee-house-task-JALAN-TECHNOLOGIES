@@ -83,8 +83,51 @@ const Home = () => {
             const totalEspresso = coffee?.espressoCoffee?.addOn(espressoArry[0], espressoArry[1], espressoArry[2]);
             setEspressoData(totalEspresso);
         }
-        else{
+        else {
             setWarningMsg1('Please Add minimum one')
+        }
+    }
+
+    const submitCappuccino = () => {
+        const cappuccinoArry = [];
+
+        const milk = document.getElementById('flexCheckDefault4');
+        if (milk.checked === true) {
+            // console.log(true);
+            const milks = document.getElementById('flexCheckDefault4').value;
+            cappuccinoArry.push(parseInt(milks))
+        }
+        else {
+            cappuccinoArry.push(0)
+        }
+
+        const cream = document.getElementById('flexCheckDefault5');
+        if (cream.checked === true) {
+            // console.log(true);
+            const creams = document.getElementById('flexCheckDefault5').value;
+            cappuccinoArry.push(parseInt(creams))
+        }
+        else {
+            cappuccinoArry.push(0)
+        }
+
+        const latte = document.getElementById('flexCheckDefault6');
+        if (latte.checked === true) {
+            // console.log(true);
+            const lattes = document.getElementById('flexCheckDefault6').value;
+            cappuccinoArry.push(parseInt(lattes))
+        }
+        else {
+            cappuccinoArry.push(0)
+        }
+        // console.log(cappuccinoArry);
+        if (milk.checked === true || cream.checked === true || latte.checked === true) {
+            setModalShow(true)
+            const totalEspresso = coffee?.espressoCoffee?.addOn(cappuccinoArry[0], cappuccinoArry[1], cappuccinoArry[2]);
+            setEspressoData(totalEspresso);
+        }
+        else {
+            setWarningMsg2('Please Add minimum one')
         }
     }
 
@@ -133,13 +176,13 @@ const Home = () => {
                         <Card.Text>
                             <span style={{ color: '#3c1d07' }} className='text-center d-block text-bolt'>Please Add-on</span>
                             <div className="form-check">
-                                <input className="form-check-input" type="checkbox" value={coffee?.cappuccinoCoffee?.latte} id="flexCheckDefault4" />
+                                <input className="form-check-input" type="checkbox" value={coffee?.cappuccinoCoffee?.milk} id="flexCheckDefault4" />
                                 <label className="form-check-label" for="flexCheckDefault4">
                                     Milk - 80 $
                                 </label>
                             </div>
                             <div className="form-check">
-                                <input className="form-check-input" type="checkbox" value={coffee?.cappuccinoCoffee?.latte} id="flexCheckDefault5" />
+                                <input className="form-check-input" type="checkbox" value={coffee?.cappuccinoCoffee?.cream} id="flexCheckDefault5" />
                                 <label className="form-check-label" for="flexCheckDefault5">
                                     Cream - 90 $
                                 </label>
@@ -152,7 +195,7 @@ const Home = () => {
                             </div>
                         </Card.Text>
                         <p className='text-danger'>{warningMsg2}</p>
-                        <Button onClick={submitEspresso} variant="primary">Order</Button>
+                        <Button onClick={submitCappuccino} variant="primary">Order</Button>
                     </Card.Body>
                 </Card>
 
@@ -191,10 +234,14 @@ const Home = () => {
                 espressoData={espressoData}
             />
             <CappuccinoModal
-
+                show={modalShow}
+                onHide={() => setModalShow(false)}
+                espressoData={espressoData}
             />
             <LatteModal
-
+                show={modalShow}
+                onHide={() => setModalShow(false)}
+                espressoData={espressoData}
             />
         </div>
     );

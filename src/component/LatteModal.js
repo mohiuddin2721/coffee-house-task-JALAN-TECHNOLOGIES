@@ -15,7 +15,7 @@ const LatteModal = (props) => {
                 </Modal.Title>
             </Modal.Header>
             <Modal.Body>
-                <h4>Your favorite "Espresso Coffee"</h4>
+                <h4>Your favorite "Latte Coffee"</h4>
             </Modal.Body>
             <Modal.Footer>
                 <Button onClick={props?.onHide}>Print</Button>
