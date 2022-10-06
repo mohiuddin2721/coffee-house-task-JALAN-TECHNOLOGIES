@@ -3,17 +3,22 @@ import { Button, Card } from 'react-bootstrap';
 import cappuccino from '../picture/cappuccino.jpg'
 import espresso from '../picture/espresso.jpg'
 import latte from '../picture/latte.jpg'
+import CappuccinoModal from './CappuccinoModal';
 import EspressoModal from './EspressoModal';
+import LatteModal from './LatteModal';
 
 const Home = () => {
     const [modalShow, setModalShow] = useState(false);
     const [espressoData, setEspressoData] = useState([]);
+    const [warningMsg1, setWarningMsg1] = useState('');
+    const [warningMsg2, setWarningMsg2] = useState('');
+    const [warningMsg3, setWarningMsg3] = useState('');
     // console.log(typeof(espressoData));
 
     const coffee = {
         espressoCoffee: {
             name: 'Espresso Coffee',
-            milk: "milk+60",
+            milk: 60,
             cream: 70,
             latte: 100,
             addOn: function (milk = 0, cream = 0, latte = 0) {
@@ -72,10 +77,15 @@ const Home = () => {
         else {
             espressoArry.push(0)
         }
-        console.log(espressoArry);
-        setModalShow(true)
-        const totalEspresso = coffee?.espressoCoffee?.addOn(espressoArry[0], espressoArry[1], espressoArry[2]);
-        setEspressoData(totalEspresso);
+        // console.log(espressoArry);
+        if (milk.checked === true || cream.checked === true || latte.checked === true) {
+            setModalShow(true)
+            const totalEspresso = coffee?.espressoCoffee?.addOn(espressoArry[0], espressoArry[1], espressoArry[2]);
+            setEspressoData(totalEspresso);
+        }
+        else{
+            setWarningMsg1('Please Add minimum one')
+        }
     }
 
     return (
@@ -89,7 +99,7 @@ const Home = () => {
                 <Card className='mx-2 col'>
                     <Card.Img variant="top" className='h-2' src={espresso} />
                     <Card.Body>
-                        <Card.Title>Espresso Coffee</Card.Title>
+                        <Card.Title>{coffee?.espressoCoffee?.name}</Card.Title>
                         <Card.Text>
                             <span style={{ color: '#3c1d07' }} className='text-center d-block text-bolt'>Please Add-on</span>
                             <div className="form-check">
@@ -99,18 +109,19 @@ const Home = () => {
                                 </label>
                             </div>
                             <div className="form-check">
-                                <input className="form-check-input" type="checkbox" value="75" id="flexCheckDefault2" />
+                                <input className="form-check-input" type="checkbox" value={coffee?.espressoCoffee?.cream} id="flexCheckDefault2" />
                                 <label className="form-check-label" for="flexCheckDefault2">
                                     Cream - 75 $
                                 </label>
                             </div>
                             <div className="form-check">
-                                <input className="form-check-input" type="checkbox" value="100" id="flexCheckDefault3" />
+                                <input className="form-check-input" type="checkbox" value={coffee?.espressoCoffee?.latte} id="flexCheckDefault3" />
                                 <label className="form-check-label" for="flexCheckDefault3">
                                     Latte - 100 $
                                 </label>
                             </div>
                         </Card.Text>
+                        <p className='text-danger'>{warningMsg1}</p>
                         <Button onClick={submitEspresso} variant="primary" type="submit">Order</Button>
                     </Card.Body>
                 </Card>
@@ -118,29 +129,30 @@ const Home = () => {
                 <Card className='mx-2 col'>
                     <Card.Img variant="top" src={cappuccino} />
                     <Card.Body>
-                        <Card.Title>Cappuccino Coffee</Card.Title>
+                        <Card.Title>{coffee?.cappuccinoCoffee?.name}</Card.Title>
                         <Card.Text>
                             <span style={{ color: '#3c1d07' }} className='text-center d-block text-bolt'>Please Add-on</span>
                             <div className="form-check">
-                                <input className="form-check-input" type="checkbox" value="" id="flexCheckDefault" />
-                                <label className="form-check-label" for="flexCheckDefault">
+                                <input className="form-check-input" type="checkbox" value={coffee?.cappuccinoCoffee?.latte} id="flexCheckDefault4" />
+                                <label className="form-check-label" for="flexCheckDefault4">
                                     Milk - 80 $
                                 </label>
                             </div>
                             <div className="form-check">
-                                <input className="form-check-input" type="checkbox" value="" id="flexCheckDefault" />
-                                <label className="form-check-label" for="flexCheckDefault">
+                                <input className="form-check-input" type="checkbox" value={coffee?.cappuccinoCoffee?.latte} id="flexCheckDefault5" />
+                                <label className="form-check-label" for="flexCheckDefault5">
                                     Cream - 90 $
                                 </label>
                             </div>
                             <div className="form-check">
-                                <input className="form-check-input" type="checkbox" value="" id="flexCheckDefault" />
-                                <label className="form-check-label" for="flexCheckDefault">
+                                <input className="form-check-input" type="checkbox" value={coffee?.cappuccinoCoffee?.latte} id="flexCheckDefault6" />
+                                <label className="form-check-label" for="flexCheckDefault6">
                                     Latte - 125 $
                                 </label>
                             </div>
                         </Card.Text>
-                        <Button variant="primary">Order</Button>
+                        <p className='text-danger'>{warningMsg2}</p>
+                        <Button onClick={submitEspresso} variant="primary">Order</Button>
                     </Card.Body>
                 </Card>
 
@@ -151,19 +163,19 @@ const Home = () => {
                         <Card.Text>
                             <span style={{ color: '#3c1d07' }} className='text-center d-block text-bolt'>Please Add-on</span>
                             <div className="form-check">
-                                <input className="form-check-input" type="checkbox" value="" id="flexCheckDefault" />
+                                <input className="form-check-input" type="checkbox" value={coffee?.espressoCoffee?.latte} id="flexCheckDefault" />
                                 <label className="form-check-label" for="flexCheckDefault">
                                     Milk - 100 $
                                 </label>
                             </div>
                             <div className="form-check">
-                                <input className="form-check-input" type="checkbox" value="" id="flexCheckDefault" />
+                                <input className="form-check-input" type="checkbox" value={coffee?.espressoCoffee?.latte} id="flexCheckDefault" />
                                 <label className="form-check-label" for="flexCheckDefault">
                                     Cream - 125 $
                                 </label>
                             </div>
                             <div className="form-check">
-                                <input className="form-check-input" type="checkbox" value="" id="flexCheckDefault" />
+                                <input className="form-check-input" type="checkbox" value={coffee?.espressoCoffee?.latte} id="flexCheckDefault" />
                                 <label className="form-check-label" for="flexCheckDefault">
                                     Latte - 150 $
                                 </label>
@@ -177,6 +189,12 @@ const Home = () => {
                 show={modalShow}
                 onHide={() => setModalShow(false)}
                 espressoData={espressoData}
+            />
+            <CappuccinoModal
+
+            />
+            <LatteModal
+
             />
         </div>
     );
