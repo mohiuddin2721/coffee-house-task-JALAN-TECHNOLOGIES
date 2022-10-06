@@ -1,7 +1,10 @@
 import React from 'react';
-import { Button, Modal } from 'react-bootstrap';
+// import { Button, Modal } from 'react-bootstrap';
+import Button from 'react-bootstrap/Button';
+import Modal from 'react-bootstrap/Modal';
 
 const EspressoModal = (props) => {
+    // const { submitEspresso, onHide } = props;
     return (
         <Modal
             {...props}
@@ -11,7 +14,7 @@ const EspressoModal = (props) => {
         >
             <Modal.Header closeButton>
                 <Modal.Title id="contained-modal-title-vcenter">
-                    Modal heading
+                    Modal heading {props?.espressoData}
                 </Modal.Title>
             </Modal.Header>
             <Modal.Body>
@@ -23,7 +26,7 @@ const EspressoModal = (props) => {
                 </p>
             </Modal.Body>
             <Modal.Footer>
-                <Button onClick={props.onHide}>Close</Button>
+                <Button onClick={props?.onHide}>Close</Button>
             </Modal.Footer>
         </Modal>
     );
