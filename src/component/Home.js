@@ -5,6 +5,7 @@ import espresso from '../picture/espresso.jpg'
 import latte from '../picture/latte.jpg'
 
 const Home = () => {
+    const [modalShow, setModalShow] = React.useState(false);
 
     const coffee = {
         name: 'Espresso Coffee',
@@ -18,6 +19,7 @@ const Home = () => {
 
     const submitEspresso = (data) => {
         console.log(data);
+        setModalShow(true)
     }
 
     return (
@@ -28,28 +30,28 @@ const Home = () => {
                 <h1 style={{ color: '#dca76a' }} className='text-center fs-5'>Make the coffee</h1>
             </div>
             <div className='mx-5 row'>
-                <Card className='mb-4 col'>
-                    <Card.Img variant="top" src={espresso} />
+                <Card className='mx-2 col'>
+                    <Card.Img variant="top" className='h-2' src={espresso} />
                     <Card.Body>
                         <form action="">
                             <Card.Title>Espresso Coffee</Card.Title>
                             <Card.Text>
                                 <span style={{ color: '#3c1d07' }} className='text-center d-block text-bolt'>Please Add-on</span>
                                 <div className="form-check">
-                                    <input className="form-check-input" type="checkbox" value="60" id="flexCheckDefault" />
-                                    <label className="form-check-label" for="flexCheckDefault">
+                                    <input className="form-check-input" type="checkbox" value="60" id="flexCheckDefault1" />
+                                    <label className="form-check-label" for="flexCheckDefault1">
                                         Milk - 60 $
                                     </label>
                                 </div>
                                 <div className="form-check">
-                                    <input className="form-check-input" type="checkbox" value="75" id="flexCheckDefault" />
-                                    <label className="form-check-label" for="flexCheckDefault">
+                                    <input className="form-check-input" type="checkbox" value="75" id="flexCheckDefault2" />
+                                    <label className="form-check-label" for="flexCheckDefault2">
                                         Cream - 75 $
                                     </label>
                                 </div>
                                 <div className="form-check">
-                                    <input className="form-check-input" type="checkbox" value="100" id="flexCheckDefault" />
-                                    <label className="form-check-label" for="flexCheckDefault">
+                                    <input className="form-check-input" type="checkbox" value="100" id="flexCheckDefault3" />
+                                    <label className="form-check-label" for="flexCheckDefault3">
                                         Latte - 100 $
                                     </label>
                                 </div>
@@ -58,7 +60,7 @@ const Home = () => {
                         </form>
                     </Card.Body>
                 </Card>
-                <Card className='mb-4 col'>
+                <Card className='mx-2 col'>
                     <Card.Img variant="top" src={cappuccino} />
                     <Card.Body>
                         <Card.Title>Cappuccino Coffee</Card.Title>
@@ -86,7 +88,7 @@ const Home = () => {
                         <Button variant="primary">Order</Button>
                     </Card.Body>
                 </Card>
-                <Card className='mb-4 col'>
+                <Card className='mx-2 col'>
                     <Card.Img variant="top" src={latte} />
                     <Card.Body>
                         <Card.Title>Latte Coffee</Card.Title>
