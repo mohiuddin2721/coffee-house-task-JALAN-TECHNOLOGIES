@@ -131,6 +131,49 @@ const Home = () => {
         }
     }
 
+    const submitLatte = () => {
+        const latteArry = [];
+
+        const milk = document.getElementById('flexCheckDefault7');
+        if (milk.checked === true) {
+            // console.log(true);
+            const milks = document.getElementById('flexCheckDefault7').value;
+            latteArry.push(parseInt(milks))
+        }
+        else {
+            latteArry.push(0)
+        }
+
+        const cream = document.getElementById('flexCheckDefault8');
+        if (cream.checked === true) {
+            // console.log(true);
+            const creams = document.getElementById('flexCheckDefault8').value;
+            latteArry.push(parseInt(creams))
+        }
+        else {
+            latteArry.push(0)
+        }
+
+        const latte = document.getElementById('flexCheckDefault9');
+        if (latte.checked === true) {
+            // console.log(true);
+            const lattes = document.getElementById('flexCheckDefault9').value;
+            latteArry.push(parseInt(lattes))
+        }
+        else {
+            latteArry.push(0)
+        }
+        // console.log(latteArry);
+        if (milk.checked === true || cream.checked === true || latte.checked === true) {
+            setModalShow(true)
+            const totalEspresso = coffee?.espressoCoffee?.addOn(latteArry[0], latteArry[1], latteArry[2]);
+            setEspressoData(totalEspresso);
+        }
+        else {
+            setWarningMsg3('Please Add minimum one')
+        }
+    }
+
     return (
         <div>
             <div>
@@ -206,25 +249,26 @@ const Home = () => {
                         <Card.Text>
                             <span style={{ color: '#3c1d07' }} className='text-center d-block text-bolt'>Please Add-on</span>
                             <div className="form-check">
-                                <input className="form-check-input" type="checkbox" value={coffee?.espressoCoffee?.latte} id="flexCheckDefault" />
-                                <label className="form-check-label" for="flexCheckDefault">
+                                <input className="form-check-input" type="checkbox" value={coffee?.latteCoffee?.milk} id="flexCheckDefault7" />
+                                <label className="form-check-label" for="flexCheckDefault7">
                                     Milk - 100 $
                                 </label>
                             </div>
                             <div className="form-check">
-                                <input className="form-check-input" type="checkbox" value={coffee?.espressoCoffee?.latte} id="flexCheckDefault" />
-                                <label className="form-check-label" for="flexCheckDefault">
+                                <input className="form-check-input" type="checkbox" value={coffee?.latteCoffee?.cream} id="flexCheckDefault8" />
+                                <label className="form-check-label" for="flexCheckDefault8">
                                     Cream - 125 $
                                 </label>
                             </div>
                             <div className="form-check">
-                                <input className="form-check-input" type="checkbox" value={coffee?.espressoCoffee?.latte} id="flexCheckDefault" />
-                                <label className="form-check-label" for="flexCheckDefault">
+                                <input className="form-check-input" type="checkbox" value={coffee?.latteCoffee?.latte} id="flexCheckDefault9" />
+                                <label className="form-check-label" for="flexCheckDefault9">
                                     Latte - 150 $
                                 </label>
                             </div>
                         </Card.Text>
-                        <Button variant="primary">Order</Button>
+                        <p className='text-danger'>{warningMsg3}</p>
+                        <Button onClick={submitLatte} variant="primary">Order</Button>
                     </Card.Body>
                 </Card>
             </div>
