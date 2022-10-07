@@ -5,8 +5,8 @@ const coffee = {
         milk: 'Milk 60',
         cream: 'Cream 75',
         latte: 'Latte 100',
-        addOn: function (milk = 0, cream = 0, latte = 0) {
-            return milk + cream + latte
+        addOn: function (m = 0, c = 0, l = 0) {
+            return m + c + l
         }
     },
     cappuccinoCoffee: {

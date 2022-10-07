@@ -9,50 +9,54 @@ import EspressoModal from './EspressoModal';
 import LatteModal from './LatteModal';
 
 const Home = () => {
-    const [modalShow, setModalShow] = useState(false);
+    const [modalShow1, setModalShow1] = useState(false);
+    const [modalShow2, setModalShow2] = useState(false);
+    const [modalShow3, setModalShow3] = useState(false);
     const [espressoData, setEspressoData] = useState([]);
+    const [cappuccinoData, setCappuccinoData] = useState([]);
+    const [latteData, setLatteData] = useState([]);
     const [warningMsg1, setWarningMsg1] = useState('');
     const [warningMsg2, setWarningMsg2] = useState('');
     const [warningMsg3, setWarningMsg3] = useState('');
     console.log(espressoData);
 
     const submitEspresso = () => {
-        const espressoArry = [];
+        const espressoArray = [];
 
         const milk = document.getElementById('flexCheckDefault1');
         if (milk.checked === true) {
             // console.log(true);
             const milks = document.getElementById('flexCheckDefault1').value;
-            espressoArry.push(milks)
+            espressoArray.push(milks)
         }
         else {
-            espressoArry.push('Milk 0')
+            espressoArray.push('Milk 0')
         }
 
         const cream = document.getElementById('flexCheckDefault2');
         if (cream.checked === true) {
             // console.log(true);
             const creams = document.getElementById('flexCheckDefault2').value;
-            espressoArry.push(creams)
+            espressoArray.push(creams)
         }
         else {
-            espressoArry.push('Creams 0')
+            espressoArray.push('Creams 0')
         }
 
         const latte = document.getElementById('flexCheckDefault3');
         if (latte.checked === true) {
             // console.log(true);
             const lattes = document.getElementById('flexCheckDefault3').value;
-            espressoArry.push(lattes)
+            espressoArray.push(lattes)
         }
         else {
-            espressoArry.push('Lattes 0')
+            espressoArray.push('Lattes 0')
         }
-        // console.log(espressoArry);
+        // console.log(espressoArray);
         if (milk.checked === true || cream.checked === true || latte.checked === true) {
-            setModalShow(true)
-            // const totalEspresso = coffee?.espressoCoffee?.addOn(espressoArry[0], espressoArry[1], espressoArry[2]);
-            setEspressoData(espressoArry);
+            setModalShow1(true)
+            // const totalEspresso = coffee?.espressoCoffee?.addOn(espressoArray[0], espressoArray[1], espressoArray[2]);
+            setEspressoData(espressoArray);
         }
         else {
             setWarningMsg1('Please Add minimum one')
@@ -60,42 +64,42 @@ const Home = () => {
     }
 
     const submitCappuccino = () => {
-        const cappuccinoArry = [];
+        const cappuccinoArray = [];
 
         const milk = document.getElementById('flexCheckDefault4');
         if (milk.checked === true) {
             // console.log(true);
             const milks = document.getElementById('flexCheckDefault4').value;
-            cappuccinoArry.push(parseInt(milks))
+            cappuccinoArray.push(parseInt(milks))
         }
         else {
-            cappuccinoArry.push(0)
+            cappuccinoArray.push(0)
         }
 
         const cream = document.getElementById('flexCheckDefault5');
         if (cream.checked === true) {
             // console.log(true);
             const creams = document.getElementById('flexCheckDefault5').value;
-            cappuccinoArry.push(parseInt(creams))
+            cappuccinoArray.push(parseInt(creams))
         }
         else {
-            cappuccinoArry.push(0)
+            cappuccinoArray.push(0)
         }
 
         const latte = document.getElementById('flexCheckDefault6');
         if (latte.checked === true) {
             // console.log(true);
             const lattes = document.getElementById('flexCheckDefault6').value;
-            cappuccinoArry.push(parseInt(lattes))
+            cappuccinoArray.push(parseInt(lattes))
         }
         else {
-            cappuccinoArry.push(0)
+            cappuccinoArray.push(0)
         }
-        // console.log(cappuccinoArry);
+        // console.log(cappuccinoArray);
         if (milk.checked === true || cream.checked === true || latte.checked === true) {
-            setModalShow(true)
-            const totalEspresso = coffee?.espressoCoffee?.addOn(cappuccinoArry[0], cappuccinoArry[1], cappuccinoArry[2]);
-            setEspressoData(totalEspresso);
+            setModalShow2(true)
+            const totalEspresso = coffee?.cappuccinoCoffee?.addOn(cappuccinoArray[0], cappuccinoArray[1], cappuccinoArray[2]);
+            setCappuccinoData(totalEspresso);
         }
         else {
             setWarningMsg2('Please Add minimum one')
@@ -103,42 +107,42 @@ const Home = () => {
     }
 
     const submitLatte = () => {
-        const latteArry = [];
+        const latteArray = [];
 
         const milk = document.getElementById('flexCheckDefault7');
         if (milk.checked === true) {
             // console.log(true);
             const milks = document.getElementById('flexCheckDefault7').value;
-            latteArry.push(parseInt(milks))
+            latteArray.push(parseInt(milks))
         }
         else {
-            latteArry.push(0)
+            latteArray.push(0)
         }
 
         const cream = document.getElementById('flexCheckDefault8');
         if (cream.checked === true) {
             // console.log(true);
             const creams = document.getElementById('flexCheckDefault8').value;
-            latteArry.push(parseInt(creams))
+            latteArray.push(parseInt(creams))
         }
         else {
-            latteArry.push(0)
+            latteArray.push(0)
         }
 
         const latte = document.getElementById('flexCheckDefault9');
         if (latte.checked === true) {
             // console.log(true);
             const lattes = document.getElementById('flexCheckDefault9').value;
-            latteArry.push(parseInt(lattes))
+            latteArray.push(parseInt(lattes))
         }
         else {
-            latteArry.push(0)
+            latteArray.push(0)
         }
-        // console.log(latteArry);
+        // console.log(latteArray);
         if (milk.checked === true || cream.checked === true || latte.checked === true) {
-            setModalShow(true)
-            const totalEspresso = coffee?.espressoCoffee?.addOn(latteArry[0], latteArry[1], latteArry[2]);
-            setEspressoData(totalEspresso);
+            setModalShow3(true)
+            const totalEspresso = coffee?.latteCoffee?.addOn(latteArray[0], latteArray[1], latteArray[2]);
+            setLatteData(latteData);
         }
         else {
             setWarningMsg3('Please Add minimum one')
@@ -244,19 +248,19 @@ const Home = () => {
                 </Card>
             </div>
             <EspressoModal
-                show={modalShow}
-                onHide={() => setModalShow(false)}
+                show={modalShow1}
+                onHide={() => setModalShow1(false)}
                 espressoData={espressoData}
             />
             <CappuccinoModal
-                show={modalShow}
-                onHide={() => setModalShow(false)}
-                espressoData={espressoData}
+                show={modalShow2}
+                onHide={() => setModalShow2(false)}
+                cappuccinoData={cappuccinoData}
             />
             <LatteModal
-                show={modalShow}
-                onHide={() => setModalShow(false)}
-                espressoData={espressoData}
+                show={modalShow3}
+                onHide={() => setModalShow3(false)}
+                latteData={latteData}
             />
         </div>
     );

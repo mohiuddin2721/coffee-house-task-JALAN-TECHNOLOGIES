@@ -11,7 +11,7 @@ const LatteModal = (props) => {
         >
             <Modal.Header closeButton>
                 <Modal.Title id="contained-modal-title-vcenter">
-                Total Bill: {props?.espressoData} $
+                Total Bill: {props?.latteData} $
                 </Modal.Title>
             </Modal.Header>
             <Modal.Body>
