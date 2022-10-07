@@ -15,7 +15,7 @@ const EspressoModal = (props) => {
     const latteCost = parseInt(data[2]?.split(' ')[1]);
 
     // const totalCost = milkCost + creamCost + latteCost;
-    const totalCost = coffee.espressoCoffee.addOn(milkCost, creamCost, latteCost);
+    const totalCost = coffee?.espressoCoffee?.addOn(milkCost, creamCost, latteCost);
     // console.log(totalCost);
     return (
         <Modal

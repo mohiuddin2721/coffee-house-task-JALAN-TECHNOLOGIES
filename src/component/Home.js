@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import coffee from '../data/Data';
-import { Button, Card } from 'react-bootstrap';
+import { Button, Card, Col, Container, Row } from 'react-bootstrap';
 import cappuccino from '../picture/cappuccino.jpg'
 import espresso from '../picture/espresso.jpg'
 import latte from '../picture/latte.jpg'
@@ -153,97 +153,103 @@ const Home = () => {
                 <h1 style={{ color: '#682e07' }} className='text-center fs-4'>Choose your coffee</h1>
                 <h1 style={{ color: '#dca76a' }} className='text-center fs-5'>Make the coffee</h1>
             </div>
-            <div className='mx-5 row'>
-                <Card className='mx-2 col'>
-                    <Card.Img variant="top" className='h-2' src={espresso} />
-                    <Card.Body>
-                        <Card.Title>{coffee?.espressoCoffee?.name}</Card.Title>
-                        <Card.Text>
-                            <span style={{ color: '#3c1d07' }} className='text-center d-block text-bolt'>Please Add-on</span>
-                            <div className="form-check">
-                                <input className="form-check-input" type="checkbox" value={coffee?.espressoCoffee?.milk} id="flexCheckDefault1" />
-                                <label className="form-check-label" htmlFor="flexCheckDefault1">
-                                    Milk - 60 $
-                                </label>
-                            </div>
-                            <div className="form-check">
-                                <input className="form-check-input" type="checkbox" value={coffee?.espressoCoffee?.cream} id="flexCheckDefault2" />
-                                <label className="form-check-label" htmlFor="flexCheckDefault2">
-                                    Cream - 75 $
-                                </label>
-                            </div>
-                            <div className="form-check">
-                                <input className="form-check-input" type="checkbox" value={coffee?.espressoCoffee?.latte} id="flexCheckDefault3" />
-                                <label className="form-check-label" htmlFor="flexCheckDefault3">
-                                    Latte - 100 $
-                                </label>
-                            </div>
-                        </Card.Text>
-                        <p className='text-danger'>{warningMsg1}</p>
-                        <Button onClick={submitEspresso} variant="primary" type="submit">Order</Button>
-                    </Card.Body>
-                </Card>
-
-                <Card className='mx-2 col'>
-                    <Card.Img variant="top" src={cappuccino} />
-                    <Card.Body>
-                        <Card.Title>{coffee?.cappuccinoCoffee?.name}</Card.Title>
-                        <Card.Text>
-                            <span style={{ color: '#3c1d07' }} className='text-center d-block text-bolt'>Please Add-on</span>
-                            <div className="form-check">
-                                <input className="form-check-input" type="checkbox" value={coffee?.cappuccinoCoffee?.milk} id="flexCheckDefault4" />
-                                <label className="form-check-label" htmlFor="flexCheckDefault4">
-                                    Milk - 80 $
-                                </label>
-                            </div>
-                            <div className="form-check">
-                                <input className="form-check-input" type="checkbox" value={coffee?.cappuccinoCoffee?.cream} id="flexCheckDefault5" />
-                                <label className="form-check-label" htmlFor="flexCheckDefault5">
-                                    Cream - 90 $
-                                </label>
-                            </div>
-                            <div className="form-check">
-                                <input className="form-check-input" type="checkbox" value={coffee?.cappuccinoCoffee?.latte} id="flexCheckDefault6" />
-                                <label className="form-check-label" htmlFor="flexCheckDefault6">
-                                    Latte - 125 $
-                                </label>
-                            </div>
-                        </Card.Text>
-                        <p className='text-danger'>{warningMsg2}</p>
-                        <Button onClick={submitCappuccino} variant="primary">Order</Button>
-                    </Card.Body>
-                </Card>
-
-                <Card className='mx-2 col'>
-                    <Card.Img variant="top" src={latte} />
-                    <Card.Body>
-                        <Card.Title>Latte Coffee</Card.Title>
-                        <Card.Text>
-                            <span style={{ color: '#3c1d07' }} className='text-center d-block text-bolt'>Please Add-on</span>
-                            <div className="form-check">
-                                <input className="form-check-input" type="checkbox" value={coffee?.latteCoffee?.milk} id="flexCheckDefault7" />
-                                <label className="form-check-label" htmlFor="flexCheckDefault7">
-                                    Milk - 100 $
-                                </label>
-                            </div>
-                            <div className="form-check">
-                                <input className="form-check-input" type="checkbox" value={coffee?.latteCoffee?.cream} id="flexCheckDefault8" />
-                                <label className="form-check-label" htmlFor="flexCheckDefault8">
-                                    Cream - 125 $
-                                </label>
-                            </div>
-                            <div className="form-check">
-                                <input className="form-check-input" type="checkbox" value={coffee?.latteCoffee?.latte} id="flexCheckDefault9" />
-                                <label className="form-check-label" htmlFor="flexCheckDefault9">
-                                    Latte - 150 $
-                                </label>
-                            </div>
-                        </Card.Text>
-                        <p className='text-danger'>{warningMsg3}</p>
-                        <Button onClick={submitLatte} variant="primary">Order</Button>
-                    </Card.Body>
-                </Card>
-            </div>
+            <Container>
+                <Row>
+                    <Col xs={12} sm={12} md={12} xl={4} className='mb-5'>
+                        <Card className=''>
+                            <Card.Img variant="top" className='h-2' src={espresso} />
+                            <Card.Body>
+                                <Card.Title>{coffee?.espressoCoffee?.name}</Card.Title>
+                                <Card.Text>
+                                    <span style={{ color: '#3c1d07' }} className='text-center d-block text-bolt'>Please Add-on</span>
+                                    <div className="form-check">
+                                        <input className="form-check-input" type="checkbox" value={coffee?.espressoCoffee?.milk} id="flexCheckDefault1" />
+                                        <label className="form-check-label" htmlFor="flexCheckDefault1">
+                                            Milk - 60 $
+                                        </label>
+                                    </div>
+                                    <div className="form-check">
+                                        <input className="form-check-input" type="checkbox" value={coffee?.espressoCoffee?.cream} id="flexCheckDefault2" />
+                                        <label className="form-check-label" htmlFor="flexCheckDefault2">
+                                            Cream - 75 $
+                                        </label>
+                                    </div>
+                                    <div className="form-check">
+                                        <input className="form-check-input" type="checkbox" value={coffee?.espressoCoffee?.latte} id="flexCheckDefault3" />
+                                        <label className="form-check-label" htmlFor="flexCheckDefault3">
+                                            Latte - 100 $
+                                        </label>
+                                    </div>
+                                </Card.Text>
+                                <p className='text-danger'>{warningMsg1}</p>
+                                <Button onClick={submitEspresso} variant="primary" type="submit">Order</Button>
+                            </Card.Body>
+                        </Card>
+                    </Col>
+                    <Col xs={12} sm={12} md={12} xl={4} className='mb-5'>
+                        <Card className=''>
+                            <Card.Img variant="top" src={cappuccino} />
+                            <Card.Body>
+                                <Card.Title>{coffee?.cappuccinoCoffee?.name}</Card.Title>
+                                <Card.Text>
+                                    <span style={{ color: '#3c1d07' }} className='text-center d-block text-bolt'>Please Add-on</span>
+                                    <div className="form-check">
+                                        <input className="form-check-input" type="checkbox" value={coffee?.cappuccinoCoffee?.milk} id="flexCheckDefault4" />
+                                        <label className="form-check-label" htmlFor="flexCheckDefault4">
+                                            Milk - 80 $
+                                        </label>
+                                    </div>
+                                    <div className="form-check">
+                                        <input className="form-check-input" type="checkbox" value={coffee?.cappuccinoCoffee?.cream} id="flexCheckDefault5" />
+                                        <label className="form-check-label" htmlFor="flexCheckDefault5">
+                                            Cream - 90 $
+                                        </label>
+                                    </div>
+                                    <div className="form-check">
+                                        <input className="form-check-input" type="checkbox" value={coffee?.cappuccinoCoffee?.latte} id="flexCheckDefault6" />
+                                        <label className="form-check-label" htmlFor="flexCheckDefault6">
+                                            Latte - 125 $
+                                        </label>
+                                    </div>
+                                </Card.Text>
+                                <p className='text-danger'>{warningMsg2}</p>
+                                <Button onClick={submitCappuccino} variant="primary">Order</Button>
+                            </Card.Body>
+                        </Card>
+                    </Col>
+                    <Col xs={12} sm={12} md={12} xl={4} className='mb-5'>
+                        <Card className=''>
+                            <Card.Img variant="top" src={latte} />
+                            <Card.Body>
+                                <Card.Title>Latte Coffee</Card.Title>
+                                <Card.Text>
+                                    <span style={{ color: '#3c1d07' }} className='text-center d-block text-bolt'>Please Add-on</span>
+                                    <div className="form-check">
+                                        <input className="form-check-input" type="checkbox" value={coffee?.latteCoffee?.milk} id="flexCheckDefault7" />
+                                        <label className="form-check-label" htmlFor="flexCheckDefault7">
+                                            Milk - 100 $
+                                        </label>
+                                    </div>
+                                    <div className="form-check">
+                                        <input className="form-check-input" type="checkbox" value={coffee?.latteCoffee?.cream} id="flexCheckDefault8" />
+                                        <label className="form-check-label" htmlFor="flexCheckDefault8">
+                                            Cream - 125 $
+                                        </label>
+                                    </div>
+                                    <div className="form-check">
+                                        <input className="form-check-input" type="checkbox" value={coffee?.latteCoffee?.latte} id="flexCheckDefault9" />
+                                        <label className="form-check-label" htmlFor="flexCheckDefault9">
+                                            Latte - 150 $
+                                        </label>
+                                    </div>
+                                </Card.Text>
+                                <p className='text-danger'>{warningMsg3}</p>
+                                <Button onClick={submitLatte} variant="primary">Order</Button>
+                            </Card.Body>
+                        </Card>
+                    </Col>
+                </Row>
+            </Container>
             <EspressoModal
                 show={modalShow1}
                 onHide={() => setModalShow1(false)}
