@@ -5,6 +5,17 @@ import Modal from 'react-bootstrap/Modal';
 
 const EspressoModal = (props) => {
     // const { submitEspresso, onHide } = props;
+    const data = props.espressoData;
+    const milk = data[0];
+    const cream = data[1];
+    const latte = data[2];
+
+    const milkCost = parseInt(data[0]?.split(' ')[1]);
+    const creamCost = parseInt(data[1]?.split(' ')[1]);
+    const latteCost = parseInt(data[2]?.split(' ')[1]);
+
+    const totalCost = milkCost + creamCost + latteCost;
+    console.log(totalCost);
     return (
         <Modal
             {...props}
@@ -14,11 +25,15 @@ const EspressoModal = (props) => {
         >
             <Modal.Header closeButton>
                 <Modal.Title id="contained-modal-title-vcenter">
-                Total Bill: {props?.espressoData} $
+                    Your favorite "Espresso Coffee"
                 </Modal.Title>
             </Modal.Header>
             <Modal.Body>
-                <h4>Your favorite "Espresso Coffee"</h4>
+                <p>{milk}</p>
+                <p>{cream}</p>
+                <p>{latte}</p>
+                <hr />
+                <p>Total: {totalCost} $</p>
             </Modal.Body>
             <Modal.Footer>
                 <Button onClick={props?.onHide}>Print</Button>

@@ -14,7 +14,7 @@ const Home = () => {
     const [warningMsg1, setWarningMsg1] = useState('');
     const [warningMsg2, setWarningMsg2] = useState('');
     const [warningMsg3, setWarningMsg3] = useState('');
-    // console.log(typeof(espressoData));
+    console.log(espressoData);
 
     const submitEspresso = () => {
         const espressoArry = [];
@@ -23,36 +23,36 @@ const Home = () => {
         if (milk.checked === true) {
             // console.log(true);
             const milks = document.getElementById('flexCheckDefault1').value;
-            espressoArry.push(parseInt(milks))
+            espressoArry.push(milks)
         }
         else {
-            espressoArry.push(0)
+            espressoArry.push('Milk 0')
         }
 
         const cream = document.getElementById('flexCheckDefault2');
         if (cream.checked === true) {
             // console.log(true);
             const creams = document.getElementById('flexCheckDefault2').value;
-            espressoArry.push(parseInt(creams))
+            espressoArry.push(creams)
         }
         else {
-            espressoArry.push(0)
+            espressoArry.push('Creams 0')
         }
 
         const latte = document.getElementById('flexCheckDefault3');
         if (latte.checked === true) {
             // console.log(true);
             const lattes = document.getElementById('flexCheckDefault3').value;
-            espressoArry.push(parseInt(lattes))
+            espressoArry.push(lattes)
         }
         else {
-            espressoArry.push(0)
+            espressoArry.push('Lattes 0')
         }
         // console.log(espressoArry);
         if (milk.checked === true || cream.checked === true || latte.checked === true) {
             setModalShow(true)
-            const totalEspresso = coffee?.espressoCoffee?.addOn(espressoArry[0], espressoArry[1], espressoArry[2]);
-            setEspressoData(totalEspresso);
+            // const totalEspresso = coffee?.espressoCoffee?.addOn(espressoArry[0], espressoArry[1], espressoArry[2]);
+            setEspressoData(espressoArry);
         }
         else {
             setWarningMsg1('Please Add minimum one')
@@ -161,19 +161,19 @@ const Home = () => {
                             <span style={{ color: '#3c1d07' }} className='text-center d-block text-bolt'>Please Add-on</span>
                             <div className="form-check">
                                 <input className="form-check-input" type="checkbox" value={coffee?.espressoCoffee?.milk} id="flexCheckDefault1" />
-                                <label className="form-check-label" for="flexCheckDefault1">
+                                <label className="form-check-label" htmlFor="flexCheckDefault1">
                                     Milk - 60 $
                                 </label>
                             </div>
                             <div className="form-check">
                                 <input className="form-check-input" type="checkbox" value={coffee?.espressoCoffee?.cream} id="flexCheckDefault2" />
-                                <label className="form-check-label" for="flexCheckDefault2">
+                                <label className="form-check-label" htmlFor="flexCheckDefault2">
                                     Cream - 75 $
                                 </label>
                             </div>
                             <div className="form-check">
                                 <input className="form-check-input" type="checkbox" value={coffee?.espressoCoffee?.latte} id="flexCheckDefault3" />
-                                <label className="form-check-label" for="flexCheckDefault3">
+                                <label className="form-check-label" htmlFor="flexCheckDefault3">
                                     Latte - 100 $
                                 </label>
                             </div>
@@ -191,19 +191,19 @@ const Home = () => {
                             <span style={{ color: '#3c1d07' }} className='text-center d-block text-bolt'>Please Add-on</span>
                             <div className="form-check">
                                 <input className="form-check-input" type="checkbox" value={coffee?.cappuccinoCoffee?.milk} id="flexCheckDefault4" />
-                                <label className="form-check-label" for="flexCheckDefault4">
+                                <label className="form-check-label" htmlFor="flexCheckDefault4">
                                     Milk - 80 $
                                 </label>
                             </div>
                             <div className="form-check">
                                 <input className="form-check-input" type="checkbox" value={coffee?.cappuccinoCoffee?.cream} id="flexCheckDefault5" />
-                                <label className="form-check-label" for="flexCheckDefault5">
+                                <label className="form-check-label" htmlFor="flexCheckDefault5">
                                     Cream - 90 $
                                 </label>
                             </div>
                             <div className="form-check">
                                 <input className="form-check-input" type="checkbox" value={coffee?.cappuccinoCoffee?.latte} id="flexCheckDefault6" />
-                                <label className="form-check-label" for="flexCheckDefault6">
+                                <label className="form-check-label" htmlFor="flexCheckDefault6">
                                     Latte - 125 $
                                 </label>
                             </div>
@@ -221,19 +221,19 @@ const Home = () => {
                             <span style={{ color: '#3c1d07' }} className='text-center d-block text-bolt'>Please Add-on</span>
                             <div className="form-check">
                                 <input className="form-check-input" type="checkbox" value={coffee?.latteCoffee?.milk} id="flexCheckDefault7" />
-                                <label className="form-check-label" for="flexCheckDefault7">
+                                <label className="form-check-label" htmlFor="flexCheckDefault7">
                                     Milk - 100 $
                                 </label>
                             </div>
                             <div className="form-check">
                                 <input className="form-check-input" type="checkbox" value={coffee?.latteCoffee?.cream} id="flexCheckDefault8" />
-                                <label className="form-check-label" for="flexCheckDefault8">
+                                <label className="form-check-label" htmlFor="flexCheckDefault8">
                                     Cream - 125 $
                                 </label>
                             </div>
                             <div className="form-check">
                                 <input className="form-check-input" type="checkbox" value={coffee?.latteCoffee?.latte} id="flexCheckDefault9" />
-                                <label className="form-check-label" for="flexCheckDefault9">
+                                <label className="form-check-label" htmlFor="flexCheckDefault9">
                                     Latte - 150 $
                                 </label>
                             </div>

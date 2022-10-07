@@ -2,9 +2,9 @@
 const coffee = {
     espressoCoffee: {
         name: 'Espresso Coffee',
-        milk: 60,
-        cream: 75,
-        latte: 100,
+        milk: 'Milk 60',
+        cream: 'Cream 75',
+        latte: 'Latte 100',
         addOn: function (milk = 0, cream = 0, latte = 0) {
             return milk + cream + latte
         }
