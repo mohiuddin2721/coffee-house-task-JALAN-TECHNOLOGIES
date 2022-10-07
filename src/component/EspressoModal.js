@@ -1,5 +1,5 @@
 import React from 'react';
-// import { Button, Modal } from 'react-bootstrap';
+import coffee from '../data/Data';
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
 
@@ -14,12 +14,13 @@ const EspressoModal = (props) => {
     const creamCost = parseInt(data[1]?.split(' ')[1]);
     const latteCost = parseInt(data[2]?.split(' ')[1]);
 
-    const totalCost = milkCost + creamCost + latteCost;
-    console.log(totalCost);
+    // const totalCost = milkCost + creamCost + latteCost;
+    const totalCost = coffee.espressoCoffee.addOn(milkCost, creamCost, latteCost);
+    // console.log(totalCost);
     return (
         <Modal
             {...props}
-            size="lg"
+            size="md"
             aria-labelledby="contained-modal-title-vcenter"
             centered
         >
@@ -29,11 +30,11 @@ const EspressoModal = (props) => {
                 </Modal.Title>
             </Modal.Header>
             <Modal.Body>
-                <p>{milk}</p>
-                <p>{cream}</p>
-                <p>{latte}</p>
+                <p>{milk} $</p>
+                <p>{cream} $</p>
+                <p>{latte} $</p>
                 <hr />
-                <p>Total: {totalCost} $</p>
+                <p>Total bill: {totalCost} $</p>
             </Modal.Body>
             <Modal.Footer>
                 <Button onClick={props?.onHide}>Print</Button>

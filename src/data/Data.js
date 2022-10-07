@@ -11,20 +11,20 @@ const coffee = {
     },
     cappuccinoCoffee: {
         name: 'Cappuccino Coffee',
-        milk: 80,
-        cream: 90,
-        latte: 125,
-        addOn: function (milk = 0, cream = 0, latte = 0) {
-            return milk + cream + latte
+        milk: 'Milk 80',
+        cream: 'Cream 90',
+        latte: 'Latte 125',
+        addOn: function (m = 0, c = 0, l = 0) {
+            return m + c + l
         }
     },
     latteCoffee: {
         name: 'Latte Coffee',
-        milk: 100,
-        cream: 125,
-        latte: 150,
-        addOn: function (milk = 0, cream = 0, latte = 0) {
-            return milk + cream + latte
+        milk: 'Milk 100',
+        cream: 'Cream 125',
+        latte: 'Latte 150',
+        addOn: function (m = 0, c = 0, l = 0) {
+            return m + c + l
         }
     }
 }

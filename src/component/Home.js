@@ -18,7 +18,7 @@ const Home = () => {
     const [warningMsg1, setWarningMsg1] = useState('');
     const [warningMsg2, setWarningMsg2] = useState('');
     const [warningMsg3, setWarningMsg3] = useState('');
-    console.log(espressoData);
+    // console.log(espressoData);
 
     const submitEspresso = () => {
         const espressoArray = [];
@@ -55,7 +55,6 @@ const Home = () => {
         // console.log(espressoArray);
         if (milk.checked === true || cream.checked === true || latte.checked === true) {
             setModalShow1(true)
-            // const totalEspresso = coffee?.espressoCoffee?.addOn(espressoArray[0], espressoArray[1], espressoArray[2]);
             setEspressoData(espressoArray);
         }
         else {
@@ -70,36 +69,35 @@ const Home = () => {
         if (milk.checked === true) {
             // console.log(true);
             const milks = document.getElementById('flexCheckDefault4').value;
-            cappuccinoArray.push(parseInt(milks))
+            cappuccinoArray.push(milks)
         }
         else {
-            cappuccinoArray.push(0)
+            cappuccinoArray.push('Milk 0')
         }
 
         const cream = document.getElementById('flexCheckDefault5');
         if (cream.checked === true) {
             // console.log(true);
             const creams = document.getElementById('flexCheckDefault5').value;
-            cappuccinoArray.push(parseInt(creams))
+            cappuccinoArray.push(creams)
         }
         else {
-            cappuccinoArray.push(0)
+            cappuccinoArray.push('Cream 0')
         }
 
         const latte = document.getElementById('flexCheckDefault6');
         if (latte.checked === true) {
             // console.log(true);
             const lattes = document.getElementById('flexCheckDefault6').value;
-            cappuccinoArray.push(parseInt(lattes))
+            cappuccinoArray.push(lattes)
         }
         else {
-            cappuccinoArray.push(0)
+            cappuccinoArray.push('Latte 0')
         }
         // console.log(cappuccinoArray);
         if (milk.checked === true || cream.checked === true || latte.checked === true) {
             setModalShow2(true)
-            const totalEspresso = coffee?.cappuccinoCoffee?.addOn(cappuccinoArray[0], cappuccinoArray[1], cappuccinoArray[2]);
-            setCappuccinoData(totalEspresso);
+            setCappuccinoData(cappuccinoArray);
         }
         else {
             setWarningMsg2('Please Add minimum one')
@@ -113,36 +111,35 @@ const Home = () => {
         if (milk.checked === true) {
             // console.log(true);
             const milks = document.getElementById('flexCheckDefault7').value;
-            latteArray.push(parseInt(milks))
+            latteArray.push(milks)
         }
         else {
-            latteArray.push(0)
+            latteArray.push('Milk 0')
         }
 
         const cream = document.getElementById('flexCheckDefault8');
         if (cream.checked === true) {
             // console.log(true);
             const creams = document.getElementById('flexCheckDefault8').value;
-            latteArray.push(parseInt(creams))
+            latteArray.push(creams)
         }
         else {
-            latteArray.push(0)
+            latteArray.push('Cream 0')
         }
 
         const latte = document.getElementById('flexCheckDefault9');
         if (latte.checked === true) {
             // console.log(true);
             const lattes = document.getElementById('flexCheckDefault9').value;
-            latteArray.push(parseInt(lattes))
+            latteArray.push(lattes)
         }
         else {
-            latteArray.push(0)
+            latteArray.push('Latte 0')
         }
         // console.log(latteArray);
         if (milk.checked === true || cream.checked === true || latte.checked === true) {
             setModalShow3(true)
-            const totalEspresso = coffee?.latteCoffee?.addOn(latteArray[0], latteArray[1], latteArray[2]);
-            setLatteData(latteData);
+            setLatteData(latteArray);
         }
         else {
             setWarningMsg3('Please Add minimum one')
